@@ -28,16 +28,13 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 from future.builtins import *  # NOQA @UnusedWildImport
 from future.utils import native_str
-from future import standard_library
 
+import http.server
 import logging
 import multiprocessing
 import select
 import sys
 from argparse import ArgumentParser
-
-with standard_library.hooks():
-    import http.server
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm.session import sessionmaker
