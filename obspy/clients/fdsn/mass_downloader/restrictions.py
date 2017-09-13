@@ -279,7 +279,7 @@ class Restrictions(object):
             while starttime < endtime:
                 yield (starttime, min(starttime + chunklength, endtime))
                 starttime += chunklength
-            raise StopIteration
+            return
 
         return it()
 
