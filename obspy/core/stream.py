@@ -1848,19 +1848,19 @@ class Stream(object):
             if trace.stats.sampling_rate != sr[trace.id]:
                 msg = "Can't merge traces with same ids but differing " + \
                       "sampling rates!"
-                raise Exception(msg)
+                raise RuntimeError(msg)
             # Check dtype.
             dtype.setdefault(trace.id, trace.data.dtype)
             if trace.data.dtype != dtype[trace.id]:
                 msg = "Can't merge traces with same ids but differing " + \
                       "data types!"
-                raise Exception(msg)
+                raise RuntimeError(msg)
             # Check calibration factor.
             calib.setdefault(trace.id, trace.stats.calib)
             if trace.stats.calib != calib[trace.id]:
                 msg = "Can't merge traces with same ids but differing " + \
                       "calibration factors.!"
-                raise Exception(msg)
+                raise RuntimeError(msg)
 
     def merge(self, method=0, fill_value=None, interpolation_samples=0,
               **kwargs):
